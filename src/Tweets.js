@@ -1,13 +1,21 @@
-import React from 'react';
+import React,{useState} from 'react';
 import './App.css';
 
-function Tweet() {
+function Tweet(props) {
+
+
+    const [likes,setLikes]=useState(0);
+
+    const likesIncrement = ()=>{
+        setLikes(likes + 1);
+    }
 
     return (
         <div className="twet">
-            <h3>Tweet Title</h3>
-            <p>Tweet description</p>
-            <h4>Tweet number of likes</h4>
+            <h3>{props.name}</h3>
+            <p>{props.message}</p>
+            <h4>{likes} number of likes</h4>
+            <button onClick={likesIncrement}>Like</button>
 
         </div>
     );
